@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {StyleSheet, Switch} from 'react-native';
 
 const AutomaticDarkModeSwitch = () => {
@@ -7,6 +7,14 @@ const AutomaticDarkModeSwitch = () => {
   const toggleSwitch = () => {
     setIsEnabled(previousState => !previousState);
   };
+
+  useEffect(() => {
+    if (isEnabled) {
+      // Switch was switched on; enable automatic dark mode
+    } else {
+      // Switch was turned off; disable automatic dark mode
+    }
+  }, [isEnabled]);
 
   return (
     <Switch
